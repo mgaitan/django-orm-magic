@@ -15,7 +15,7 @@ SECRET_KEY = '%s'
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': ':memory:'
+    'NAME': 'db.sqlite' #':memory:'
     }
   }
 INSTALLED_APPS = ("orm_magic",)
@@ -45,7 +45,7 @@ class DjangoOrmMagics(Magics):
 
         temp_dir = j(temp_project_path, 'orm_magic')
         os.makedirs(temp_dir)
-
+        print temp_dir
         open(j(temp_project_path, '__init__.py'), 'a').close()
         open(j(temp_dir, '__init__.py'), 'a').close()
 
