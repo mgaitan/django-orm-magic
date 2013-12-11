@@ -5,7 +5,7 @@ import tempfile
 
 from django.core.management import call_command
 from django.utils.crypto import get_random_string
-from IPython.core.magic import Magics, magics_class,  cell_magic
+from IPython.core.magic import Magics, magics_class, cell_magic
 
 
 chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
@@ -57,7 +57,7 @@ class DjangoOrmMagics(Magics):
 
         sys.path.append(temp_project_path)
         os.environ['DJANGO_SETTINGS_MODULE'] = 'orm_magic.settings'
-        call_command('syncdb', verbosity=0,     interactive=False)
+        call_command('syncdb', verbosity=0, interactive=False)
 
         module = importlib.import_module('orm_magic.models', temp_project)
         self._import_all(module)

@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup
-from django_orm_magic.py import __version__
 
 long_description = (open('README.rst').read() + '\n\n' +
                     open('CHANGES.rst').read())
 
 setup(
     name='django-orm-magic',
-    version=__version__,
+    version='0.2',
     description="An extension for IPython that help to define django's models in "
                 "your interactive session.",
     long_description=long_description,
