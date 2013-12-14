@@ -18,8 +18,7 @@ Django ORM Magic
 Define your django models in an IPython cell and use them on the fly.
 Let the magic do the boring part.
 
-Django ORM isn't not conceived to be used standalone. Even for a trivial case, you need configure a database, creat an app, etc. This magic handle that automatically, and then import every model to your interactive session.
-
+Django ORM isn't not conceived to be used standalone. Even for a trivial case, you need to configure a database, create an app, etc. This magic handle that automatically, and then import every model to your interactive session.
 
 
 ..
@@ -42,7 +41,7 @@ or directly from the repository using the `%install_ext` magic command::
 Basic usage
 ===========
 
-Once it's installed, you can load it with `%load_ext django_orm_magic`. Then define your models in a cell started with the cell magic `%%django_orm``.
+Once it's installed, you can load it with ``%load_ext django_orm_magic``. Then define your models in a cell started with the cell magic ``%%django_orm``.
 For example::
 
     In[2]: %load_ext django_orm_magic
