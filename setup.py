@@ -6,7 +6,7 @@ long_description = (open('README.rst').read() + '\n\n' +
 
 setup(
     name='django-orm-magic',
-    version='0.2',
+    version='0.3',
     description="An extension for IPython that help to define django's models in "
                 "your interactive session.",
     long_description=long_description,
