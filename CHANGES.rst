@@ -2,6 +2,12 @@
 Changelog
 =========
 
+0.3 / 2013-12-14
+----------------
+
+- Added `%django_settings` magic
+- Added a tutorial notebook
+
 0.2 / 2013-12-11
 -----------------
 

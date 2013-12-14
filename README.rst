@@ -13,17 +13,16 @@ Django ORM Magic
 
 :author: Martín Gaitán <gaitan@gmail.com>
 :homepage: https://github.com/mgaitan/django-orm-magic
+:documentation: see `this notebook`__
+
+__ documentation_
+.. _documentation:  http://nbviewer.ipython.org/urls/raw.github.com/mgaitan/django-orm-magic/master/documentation.ipynb
 
 
 Define your django models in an IPython cell and use them on the fly.
 Let the magic do the boring part.
 
 Django ORM isn't not conceived to be used standalone. Even for a trivial case, you need to configure a database, create an app, etc. This magic handle that automatically, and then import every model to your interactive session.
-
-
-..
-    __ documentation_
-    .. _documentation:  http://nbviewer.ipython.org/urls/raw.github.com/mgaitan/fortran_magic/master/documentation.ipynb
 
 
 Install
@@ -71,6 +70,8 @@ And it's done. Every model is synced in a sqlite database named ``db.sqlite`` in
            p = Poll(question="What's new?", pub_date=timezone.now())
            p.save()
 
+
+See the documentation_ for further details.
 
 See here_ for another example
 
