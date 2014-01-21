@@ -2,6 +2,13 @@
 Changelog
 =========
 
+0.3.1 / 2014-01-21
+------------------
+
+- Fix bug `#4 <https://github.com/mgaitan/django-orm-magic/issues/4>`_
+  (now install via pip works)
+
+
 0.3 / 2013-12-14
 ----------------
 
