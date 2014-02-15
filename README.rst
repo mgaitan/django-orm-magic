@@ -22,7 +22,7 @@ __ documentation_
 Define your django models in an IPython cell and use them on the fly.
 Let the magic do the boring part.
 
-Django ORM isn't not conceived to be used standalone. Even for a trivial case, you need to configure a database, create an app, etc. This magic handle that automatically, and then import every model to your interactive session.
+Django ORM isn't conceived to be used standalone. Even for a trivial case, you need to configure a database, create an app, etc. This magic handle that automatically, and then import every model to your interactive session.
 
 
 Install
