@@ -22,12 +22,16 @@ DATABASES = {
     'NAME': 'db.sqlite' #':memory:'
     }
   }
-INSTALLED_APPS = ("orm_magic",)
+INSTALLED_APPS = ("south", "orm_magic",)
 """
 
 
 @magics_class
 class DjangoOrmMagics(Magics):
+
+    def __init__(self, *args, **kwargs):
+        super(DjangoOrmMagics, self).__init__(*args, **kwargs)
+        self._temp_path = tempfile.mkdtemp()
 
     def get_settings(self, add_secret_key=False):
         try:
@@ -93,23 +97,35 @@ class DjangoOrmMagics(Magics):
     def django_orm(self, line, cell):
         j = os.path.join
 
-        temp_project_path = tempfile.mkdtemp()
+        temp_project_path = self._temp_path
         tmp, temp_project = os.path.split(temp_project_path)
-
         temp_dir = j(temp_project_path, 'orm_magic')
-        os.makedirs(temp_dir)
-        open(j(temp_project_path, '__init__.py'), 'a').close()
-        open(j(temp_dir, '__init__.py'), 'a').close()
+
+        try:
+            os.makedirs(temp_dir)
+            open(j(temp_project_path, '__init__.py'), 'a').close()
+            open(j(temp_dir, '__init__.py'), 'a').close()
+            south_mode = 'initial'
+        except OSError:
+            # orm_magic exists
+            south_mode = 'auto'
 
         module_path = j(temp_dir, 'models.py')
-        with open(module_path, 'w') as fh:
-            fh.write(cell)
+        with open(module_path, 'a') as fh:
+            fh.write('\n' + cell)
+
         with open(j(temp_dir, 'settings.py'), 'w') as fh:
             fh.write(self.get_settings(True))
 
         sys.path.append(temp_project_path)
         os.environ['DJANGO_SETTINGS_MODULE'] = 'orm_magic.settings'
-        call_command('syncdb', verbosity=0, interactive=False)
+        call_command('syncdb')
+
+        if south_mode == 'initial':
+            call_command('convert_to_south', 'orm_magic', verbosity=3)
+        else:
+            call_command('schemamigration', 'orm_magic', auto=True, verbosity=3)
+            call_command('migrate', 'orm_magic', verbosity=3)
 
         module = importlib.import_module('orm_magic.models', temp_project)
         self._import_all(module)
