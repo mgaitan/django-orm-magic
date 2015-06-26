@@ -6,7 +6,7 @@ long_description = (open('README.rst').read() + '\n\n' +
 
 setup(
     name='django-orm-magic',
-    version='0.3.1',
+    version='0.4',
     description="An extension for IPython that help to define django's models in "
                 "your interactive session.",
     long_description=long_description,
@@ -16,7 +16,7 @@ setup(
     license='BSD',
     keywords="ipython notebook django orm standalone",
     py_modules=['django_orm_magic'],
-    install_requires=['ipython', 'django'],
+    install_requires=['ipython', 'django>1.7'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
