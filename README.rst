@@ -2,11 +2,11 @@
 Django ORM Magic
 =================
 
-.. image:: https://pypip.in/v/django-orm-magic/badge.png
+.. image:: https://img.shields.io/pypi/v/django-orm-magic.svg
    :target: https://pypi.python.org/pypi/django-orm-magic
    :alt: Latest PyPI version
 
-.. image:: https://pypip.in/d/django-orm-magic/badge.png
+.. image:: https://img.shields.io/pypi/dm/django-orm-magic.svg
    :target: https://pypi.python.org/pypi/django-orm-magic
    :alt: Number of PyPI downloads
 
